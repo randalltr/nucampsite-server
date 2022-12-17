@@ -1,28 +1,30 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// A Model representing a partner 
+
 const partnerSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: true 
     },
     image: {
         type: String,
-        required: true
+        required: true 
     },
     featured: {
         type: Boolean,
         default: false
-    },
+    }, 
     description: {
         type: String,
-        required: true
-    }
+        required: true 
+    }, 
 }, {
     timestamps: true
-});
+    });
 
-const Partner = mongoose.model('Partner', partnerSchema);
+const Partner = mongoose.model('Partner', partnerSchema); 
 
-module.exports = Partner;
+module.exports = Partner; 
