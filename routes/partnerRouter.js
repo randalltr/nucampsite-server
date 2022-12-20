@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const Partner = require('../models/partner'); 
 
