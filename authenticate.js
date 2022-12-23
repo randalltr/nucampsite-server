@@ -15,6 +15,18 @@ exports.getToken = function(user) {
     return jwt.sign(user, config.secretKey, {expiresIn: 3600});
 };
 
+// Task 1 - Set up the verifyAdmin() middleware
+exports.verifyAdmin = function(user) {
+    if (req.user.admin === true) {
+        return next();
+    } else {
+        const err = new Error('You are not authorized to perform this action!');
+        err.status = 403;
+        return next(err);
+    
+    }
+}
+
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = config.secretKey;
